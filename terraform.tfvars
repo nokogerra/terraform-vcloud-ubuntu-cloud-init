@@ -27,11 +27,10 @@ ci_time_zone = "Europe/Moscow"
 #so you don't need to specify it manually. Just try the command "openssl passwd -6 "some_string"" and you'll get the different result every time.
 ci_user_passwd = "$6$ejAbmroUoSV0vZFX$TnqMrhgL/wMmR8TUasZxusd16HUshZPmMrpFQ5gs1XYHb16b/HoRVAZxMeOU7BooWWzQX0D3AgmyPNqByypeY1"  
 ci_root_passwd = "$6$TnVg6lZdOTFJM9I5$YWJdt9hUwYYgJ.8RYICJKn4Qp5tSuW9n0KXFyiCy5nyi.GocYWShi3QiVpxwEKsXxjCmdEghFVO0Gkfrnbefg/"
-#os_type                         = "ubuntu64Guest"
-org_network                    = "kube-net02"
+org_network = "kube-net02"
 #This is actually a "VM Home" storage policy. If you need to change system disk storage policy,
 #you have to override it in "system_disk_storage_profile" variable. 
-storage_profile                 = "DPLabCompNonSSD"
+storage_profile = "DPLabCompNonSSD"
 
 #VM vars
 #In the following map variable you must specify VM, IP addresses and CPU/mem configuration according to your needs.

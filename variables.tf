@@ -100,10 +100,6 @@ variable "ci_root_passwd" {
   description = ""
   default     = "default"
 }
-#variable "os_type" {
-#  description = "OS Type"
-#  default     = "ubuntu64Guest"
-#}
 
 variable "org_network" {
   description = ""
