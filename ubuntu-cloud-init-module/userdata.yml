@@ -25,7 +25,7 @@ users:
       - ${ci_user_ssh_pub}
 chpasswd:
   list: |
-    ansible:${ci_user_passwd}
+    ${ci_user_name}:${ci_user_passwd}
     root:${ci_root_passwd}
   expire: false
 package_upgrade: true
