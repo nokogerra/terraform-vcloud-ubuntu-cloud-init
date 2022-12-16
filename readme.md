@@ -21,7 +21,7 @@ There is just a simple example of cloud-init userdata, which is going to:
 * set passwords for a new user and root;
 * set a hostname, an instance_id and time zone;
 * disable IPv6;
-* upgrade all packages.
+* upgrade all packages.<br />
 Network settings are configured via customization (manual IP allocation).
 
 
