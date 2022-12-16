@@ -6,7 +6,7 @@ Despite I usually use cloud-ready-image, it is possible to use your own custom U
 Since this recipe is going to create only a new vApp, map an Org Network to it and deploy as many VMs (w/wo disks), as you need, it is obvious, that you gonna need a preconfigured Org Network (IP pool, DNS settings, etc) and an Ubuntu image in your Org Catalog (Library).<br />
 
 ### Additional disks bus type
-Be careful choosing bus type for a data disks. In case your template has system disk (0:0) with Parallel bus type, and after that you are going to add data disks to a Paravirtual bus (1:x), your Ubuntu guest OS will change system disk letter (e.g. from sda to sdb)! It's safer to add data disks to the same bus type as a system disk attached to. It just means not the same bus, but the **same bus type**.<br />
+Be careful choosing bus type for a data disks. In case your template has system disk (0:0) with Parallel bus type, and then you add data disks to a Paravirtual bus (1:x), your Ubuntu guest OS will change system disk letter (e.g. from sda to sdb)! It's safer to add data disks to the same bus type as a system disk attached to. It just means not the same bus, but the **same bus type**.<br />
 In my example, the bus type of the system disk is overrided during deployment and set to "paravirtual", so there will be no issues, if you choose "paravirtual" for an additional disks too.
 
 ### System disk override
