@@ -49,6 +49,7 @@ variable "template_vm" {
   default     = "focal-server-cloudimg-amd64"
 }
 
+#System disk vars
 variable "system_disk_bus" {
   description = ""
   default     = "default"
@@ -59,13 +60,52 @@ variable "system_disk_size" {
   default     = "default"
 }
 
-variable "os_type" {
-  description = "OS Type"
-  default     = "ubuntu64Guest"
-
+variable "system_disk_storage_profile" {
+  description = ""
+  default     = "default"
 }
 
-variable "vapp_network" {
+#Other vars
+variable "vapp_name" {
+  description = ""
+  default     = "default"
+}
+
+variable "ci_user_name" {
+  description = ""
+  default     = "default"
+}
+
+variable "ci_user_gecos" {
+  description = ""
+  default     = "default"
+}
+
+variable "ci_user_ssh_pub" {
+  description = ""
+  default     = "default"
+}
+
+variable "ci_time_zone" {
+  description = ""
+  default     = "default"
+}
+
+variable "ci_user_passwd" {
+  description = ""
+  default     = "default"
+}
+
+variable "ci_root_passwd" {
+  description = ""
+  default     = "default"
+}
+#variable "os_type" {
+#  description = "OS Type"
+#  default     = "ubuntu64Guest"
+#}
+
+variable "org_network" {
   description = ""
   default     = "dr-nw01-z01"
 }
@@ -75,47 +115,25 @@ variable "storage_profile" {
   default     = "DPLabCompSSD"
 }
 
-variable "sys_disk_storage_profile" {
-  description = ""
-  default     = "default"
-}
-
 #VM vars
 variable "vms" {
   type = map(object({
     vm_name = string
     ip_addr = string
+    vm_mem  = string
+    vm_cpus = string
   }))
   default = {}
 }
 
-variable "vapp_name" {
-  description = ""
-  default     = "default"
-}
-
-variable "ci_ansible_ssh_pub" {
-  description = ""
-  default     = "default"
-}
-
-variable "vm_mem" {
-  description = ""
-  default     = "2"
-}
-variable "vm_cpus" {
-  description = ""
-  default     = "default"
-}
-
-variable "vm_data_disks" {
-  type = list(object({
-    #    mount_point     = string
-    #    file_system     = string
-    #    storage_profile = string
-    size = number
+#Additional disks vars
+variable "add_disks" {
+  type = map(object({
+    sizegb          = string
+    bus_num         = string
+    unit_num        = string
+    storage_profile = string
+    bus_type        = string
   }))
-
-  description = "VM hard drives"
-  default     = []
+  default = {}
 }

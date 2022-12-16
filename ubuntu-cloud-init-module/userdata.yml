@@ -11,22 +11,22 @@ runcmd:
 - netplan --debug apply
 - sysctl -w net.ipv6.conf.all.disable_ipv6=1
 - sysctl -w net.ipv6.conf.default.disable_ipv6=1
-timezone: Europe/Moscow
+timezone: ${ci_time_zone}
 disable_root: false
 ssh_pwauth: yes
 users:
-  - name: ansible 
-    gecos: ANSIBLE
+  - name: ${ci_user_name} 
+    gecos: ${ci_user_gecos}
     lock_passwd: false
     groups: sudo, users, admin
     shell: /bin/bash
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys:
-      - ${ci_ansible_ssh_pub}
+      - ${ci_user_ssh_pub}
 chpasswd:
   list: |
-    ansible:$6$ZSr6xuWPDoq0CnXk$c4C14Dr2RLjD9Tpd43Sxxyw8jNGecMQde9IvLFth9L0Fl4sreqlfGurfLK/qmZLJVqdpOOM2kCMy.fURTJgej.
-    root:$6$ivG0b09UZ5SlF.WL$S9QS3s1QDgZBmDIoRdf1fb4I2dIOBvqrIgVMd5aPovS320rt5SCh7lKe5defzBydb26qleJ2DuiSty6jp89mS/
+    ansible:${ci_user_passwd}
+    root:${ci_root_passwd}
   expire: false
 package_upgrade: true
 package_reboot_if_required: true

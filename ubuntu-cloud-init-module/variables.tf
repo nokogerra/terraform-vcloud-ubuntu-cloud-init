@@ -1,9 +1,5 @@
+# Provider vars
 variable "mod_org_name" {
-  description = ""
-  default     = "default"
-}
-
-variable "mod_vapp_name" {
   description = ""
   default     = "default"
 }
@@ -18,6 +14,7 @@ variable "mod_template_vm" {
   default     = "default"
 }
 
+#System disk vars
 variable "mod_system_disk_bus" {
   description = ""
   default     = "default"
@@ -28,16 +25,48 @@ variable "mod_system_disk_size" {
   default     = "default"
 }
 
-variable "mod_ci_ansible_ssh_pub" {
+variable "mod_system_disk_storage_profile" {
   description = ""
   default     = "default"
 }
 
-variable "mod_vm_mem" {
+#Other vars
+variable "mod_vapp_name" {
   description = ""
-  default     = "2"
+  default     = "default"
 }
-variable "mod_vm_cpus" {
+
+variable "mod_ci_user_name" {
+  description = ""
+  default     = "default"
+}
+
+variable "mod_ci_user_gecos" {
+  description = ""
+  default     = "default"
+}
+
+variable "mod_ci_user_ssh_pub" {
+  description = ""
+  default     = "default"
+}
+
+variable "mod_ci_time_zone" {
+  description = ""
+  default     = "default"
+}
+
+variable "mod_ci_user_passwd" {
+  description = ""
+  default     = "default"
+}
+
+variable "mod_ci_root_passwd" {
+  description = ""
+  default     = "default"
+}
+
+variable "mod_org_network" {
   description = ""
   default     = "default"
 }
@@ -47,7 +76,12 @@ variable "mod_storage_profile" {
   default     = "default"
 }
 
-variable "mod_sys_disk_storage_profile" {
+#VM vars
+variable "mod_vm_mem" {
+  description = ""
+  default     = "2"
+}
+variable "mod_vm_cpus" {
   description = ""
   default     = "default"
 }
@@ -57,24 +91,19 @@ variable "mod_vm_name" {
   default     = "default"
 }
 
-variable "mod_vapp_network" {
-  description = ""
-  default     = "default"
-}
-
 variable "mod_ip_addr" {
   description = ""
   default     = "default"
 }
 
-variable "mod_vm_data_disks" {
-  type = list(object({
-    #    mount_point     = string
-    #    file_system     = string
-    #    storage_profile = string
-    size = number
+#Additional disks vars
+variable "mod_add_disks" {
+  type = map(object({
+    sizegb          = string
+    bus_num         = string
+    unit_num        = string
+    storage_profile = string
+    bus_type        = string
   }))
-
-  description = "VM hard drives"
-  default     = []
+  default = {}
 }
